@@ -5,6 +5,8 @@ import Homepage from "./pages/hompage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import { setCurrentUser } from "./redux/user/user.action";
+import { selectCurrentUser } from "./redux/user/user.selectors";
+import { createStructuredSelector } from "reselect";
 
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
@@ -57,8 +59,8 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 });
 const mapDispatchToProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user))

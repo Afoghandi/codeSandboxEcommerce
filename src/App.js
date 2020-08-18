@@ -3,7 +3,9 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import Homepage from "./pages/hompage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
+import CheckoutPage from "./pages/checkout/checkout.component";
 import Header from "./components/header/header.component";
+
 import { setCurrentUser } from "./redux/user/user.action";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
@@ -41,6 +43,7 @@ class App extends React.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={Homepage} />
+          <Route exact path="/checkout" component={CheckoutPage} />
           <Route path="/shop" component={ShopPage} />
           <Route
             exact
